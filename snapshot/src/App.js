@@ -5,12 +5,10 @@ import './App.css';
 
 function App() {
 
-  const [searchTerm, setSearchTerm] = useState("");
+  let imageRequest
 
-  function handleSubmit(evt) {
-    evt.preventDefault();
-    const imageRequest = FlickrAPI.getImages(searchTerm);
-    setSearchTerm("");
+  async function search(term) {
+    imageRequest = await FlickrAPI.getImages(term);;
   }
 
 
