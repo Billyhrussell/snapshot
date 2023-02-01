@@ -7,11 +7,14 @@ import FlickrAPI from './_api';
 
 function App() {
 
-  let imageRequest
+  let imageRequest;
 
   async function searchBy(term) {
-    imageRequest = await FlickrAPI.getImages(term);;
+    imageRequest = await FlickrAPI.getImages(term);
+    debugger;
   }
+
+
 
 
   return (

@@ -6,6 +6,7 @@ function SearchForm({searchBy}) {
   function handleSubmit(evt) {
     evt.preventDefault();
     searchBy(searchTerm);
+    setSearchTerm("");
   }
 
   function handleChange(evt) {
@@ -23,6 +24,10 @@ function SearchForm({searchBy}) {
         value = {searchTerm}
         aria-label="searchForm"
       />
+
+      <button>
+        Submit
+      </button>
     </form>
   )
 }
