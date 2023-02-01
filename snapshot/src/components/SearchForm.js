@@ -1,7 +1,6 @@
-import React from "react";
-import FlickrAPI from "../_api";
+import React, {useState} from "react";
 
-function SearchForm() {
+function SearchForm({searchBy}) {
   const [searchTerm, setSearchTerm] = useState('');
 
   function handleSubmit(evt) {
@@ -27,3 +26,5 @@ function SearchForm() {
     </form>
   )
 }
+
+export default SearchForm
