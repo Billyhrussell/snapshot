@@ -24,18 +24,17 @@ let imageRequest;
 
 useEffect(function getFirstLoad() {
 
-  async function getFirstImages(){
+  async function getFirstImages(searchTerm){
     try {
-      imageRequest = await FlickrAPI.getImages(searchTerm);
-      setImageData(imageRequest);
-      console.log("IMAGE DATA ", imageData)
+      const image = await FlickrAPI.getImages(searchTerm);
+      setImageData(image);
       debugger;
       setIsLoading(false);
     }catch{
       console.error("Error");
     }}
-    getFirstImages();
-  }, [imageData]);
+    getFirstImages(searchTerm);
+  }, [searchTerm]);
 
 
 
@@ -47,6 +46,7 @@ useEffect(function getFirstLoad() {
 
   return (
     <div className="App">
+
       <SearchForm searchBy={searchBy}></SearchForm>
       {isLoading ? (
         <Loading></Loading>
