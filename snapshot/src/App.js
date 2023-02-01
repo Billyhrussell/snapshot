@@ -8,8 +8,10 @@ import ImageContainer from "./components/ImageContainer";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+// TODO: function so that isLoading will be false
 
   let imageRequest;
+// TODO: useEffect so images can show up on render
 
   async function searchBy(term) {
     imageRequest = await FlickrAPI.getImages(term);
