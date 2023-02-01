@@ -15,15 +15,8 @@ function App() {
 // if(isLoading) return <Loading/>
 let imageRequest;
 
-// if(isLoading){
-
-//   imageRequest = searchBy("Mountain");
-//   debugger;
-//   setIsLoading(false);
-// }
-
+//TODO: figure this out
 useEffect(function getFirstLoad() {
-
   async function getFirstImages(searchTerm){
     try {
       const image = await FlickrAPI.getImages(searchTerm);
@@ -37,9 +30,7 @@ useEffect(function getFirstLoad() {
   }, [searchTerm]);
 
 
-
 // TODO: useEffect so images can show up on render
-
   async function searchBy(term) {
     imageRequest = await FlickrAPI.getImages(term);
   }
