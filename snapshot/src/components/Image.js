@@ -30,6 +30,13 @@ import React from  "react";
   //       "isfamily": 0
   //     },
 
-const Image = ({imgObj}) => {
+const Image = ({id, owner}) => {
+  let imageURL= `https://www.flickr.com/photos/${owner}/${id}/`
+  return (
+    <img src={imageURL} alt=""/>
+  )
+
 
 }
+
+export default Image;
