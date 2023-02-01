@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import SearchForm from "./components/SearchForm";
@@ -8,9 +8,37 @@ import ImageContainer from "./components/ImageContainer";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState("Mountain");
+  const [imageData, setImageData] = useState({});
 // TODO: function so that isLoading will be false
 
-  let imageRequest;
+// if(isLoading) return <Loading/>
+let imageRequest;
+
+// if(isLoading){
+
+//   imageRequest = searchBy("Mountain");
+//   debugger;
+//   setIsLoading(false);
+// }
+
+useEffect(function getFirstLoad() {
+
+  async function getFirstImages(){
+    try {
+      imageRequest = await FlickrAPI.getImages(searchTerm);
+      setImageData(imageRequest);
+      console.log("IMAGE DATA ", imageData)
+      debugger;
+      setIsLoading(false);
+    }catch{
+      console.error("Error");
+    }}
+    getFirstImages();
+  }, [imageData]);
+
+
+
 // TODO: useEffect so images can show up on render
 
   async function searchBy(term) {

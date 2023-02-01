@@ -1,17 +1,17 @@
 import React, {useState} from "react";
 
 function SearchForm({searchBy}) {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [formData, setFormData] = useState('');
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    searchBy(searchTerm);
-    setSearchTerm("");
+    searchBy(formData);
+    setFormData("");
   }
 
   function handleChange(evt) {
     const input = evt.target;
-    setSearchTerm(input.value);
+    setFormData(input.value);
   }
 
   return (
@@ -21,7 +21,7 @@ function SearchForm({searchBy}) {
         name = "searchFrom"
         placeholder =  "Enter search term"
         onChange = {handleChange}
-        value = {searchTerm}
+        value = {formData}
         aria-label="searchForm"
       />
 

@@ -2,7 +2,10 @@ import React from "react";
 import Image from "./Image";
 
 function ImageContainer({ imageRequest }) {
+  debugger;
   let imageObj = imageRequest.data.photos.photo;
+
+  debugger;
   return (
     <>
       {imageObj.map((element) => (
