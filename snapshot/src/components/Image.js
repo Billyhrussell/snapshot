@@ -33,11 +33,11 @@ import React from  "react";
 
 const Image = ({id, server, secret}) => {
   // debugger;
-  let imageURL= `https://live.staticflickr.com/${server}/${id}_${secret}.jpg`
+  let imageURL= `https://live.staticflickr.com/${server}/${id}_${secret}_q.jpg`
   // let imageURL= `https://www.seiu1000.org/sites/main/files/main-images/camera_lense_0.jpeg`
 
   return (
-     <img src={imageURL} alt="" width="50" height="50"/>
+     <img src={imageURL} alt=""/>
   )
 }
 

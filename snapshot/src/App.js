@@ -23,7 +23,7 @@ function App() {
           setImageData(image);
           console.log(imageData);
           setIsLoading(false);
-          debugger;
+          // debugger;
         } catch {
           console.log("Error");
         }
