@@ -12,7 +12,6 @@ function App() {
   const [imageData, setImageData] = useState({});
   // TODO: function so that isLoading will be false
 
-  // if(isLoading) return <Loading/>
   let imageRequest;
 
   //TODO: figure this out
@@ -23,8 +22,8 @@ function App() {
           const image = await FlickrAPI.getImages("Mountain");
           setImageData(image);
           console.log(imageData);
-          debugger;
           setIsLoading(false);
+          debugger;
         } catch {
           console.log("Error");
         }
@@ -32,9 +31,10 @@ function App() {
       getFirstImages();
       // getFirstImages(searchTerm)
       // took out arg for getFirstImage and just hardcoded "Mountain"
-    },
-    [imageData]
+    }
   );
+
+  if(isLoading) return (<Loading/>);
 
   // TODO: useEffect so images can show up on render
   async function searchBy(term) {
@@ -45,11 +45,9 @@ function App() {
   return (
     <div className="App">
       <SearchForm searchBy={searchBy}></SearchForm>
-      {isLoading ? (
-        <Loading></Loading>
-      ) : (
+      {
         <ImageContainer imageRequest={imageData}></ImageContainer>
-      )}
+      }
     </div>
   );
 }

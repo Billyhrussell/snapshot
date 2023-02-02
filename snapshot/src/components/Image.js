@@ -1,3 +1,4 @@
+
 import React from  "react";
 
 //imgObj = {
@@ -31,12 +32,13 @@ import React from  "react";
   //     },
 
 const Image = ({id, owner}) => {
-  let imageURL= `https://www.flickr.com/photos/${owner}/${id}/`
+  // debugger;
+  // let imageURL= `https://www.flickr.com/photos/${owner}/${id}/`
+  let imageURL= `https://www.seiu1000.org/sites/main/files/main-images/camera_lense_0.jpeg`
+
   return (
-    <img src={imageURL} alt=""/>
+     <img src={imageURL} alt="" width="50" height="50"/>
   )
-
-
 }
 
 export default Image;
