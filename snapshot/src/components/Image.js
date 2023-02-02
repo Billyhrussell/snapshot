@@ -31,10 +31,10 @@ import React from  "react";
   //       "isfamily": 0
   //     },
 
-const Image = ({id, owner}) => {
+const Image = ({id, server, secret}) => {
   // debugger;
-  // let imageURL= `https://www.flickr.com/photos/${owner}/${id}/`
-  let imageURL= `https://www.seiu1000.org/sites/main/files/main-images/camera_lense_0.jpeg`
+  let imageURL= `https://live.staticflickr.com/${server}/${id}_${secret}.jpg`
+  // let imageURL= `https://www.seiu1000.org/sites/main/files/main-images/camera_lense_0.jpeg`
 
   return (
      <img src={imageURL} alt="" width="50" height="50"/>

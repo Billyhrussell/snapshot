@@ -31,7 +31,7 @@ function App() {
       getFirstImages();
       // getFirstImages(searchTerm)
       // took out arg for getFirstImage and just hardcoded "Mountain"
-    }
+    }, [isLoading]
   );
 
   if(isLoading) return (<Loading/>);
