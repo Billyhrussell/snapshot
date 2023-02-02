@@ -8,41 +8,47 @@ import ImageContainer from "./components/ImageContainer";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const [searchTerm, setSearchTerm] = useState("Mountain");
+  // const [searchTerm, setSearchTerm] = useState("Mountain");
   const [imageData, setImageData] = useState({});
-// TODO: function so that isLoading will be false
+  // TODO: function so that isLoading will be false
 
-// if(isLoading) return <Loading/>
-let imageRequest;
+  // if(isLoading) return <Loading/>
+  let imageRequest;
 
-//TODO: figure this out
-useEffect(function getFirstLoad() {
-  async function getFirstImages(searchTerm){
-    try {
-      const image = await FlickrAPI.getImages(searchTerm);
-      setImageData(image);
-      debugger;
-      setIsLoading(false);
-    }catch{
-      console.error("Error");
-    }}
-    getFirstImages(searchTerm);
-  }, [searchTerm]);
+  //TODO: figure this out
+  useEffect(
+    function getFirstLoad() {
+      async function getFirstImages() {
+        try {
+          const image = await FlickrAPI.getImages("Mountain");
+          setImageData(image);
+          console.log(imageData);
+          debugger;
+          setIsLoading(false);
+        } catch {
+          console.log("Error");
+        }
+      }
+      getFirstImages();
+      // getFirstImages(searchTerm)
+      // took out arg for getFirstImage and just hardcoded "Mountain"
+    },
+    [imageData]
+  );
 
-
-// TODO: useEffect so images can show up on render
+  // TODO: useEffect so images can show up on render
   async function searchBy(term) {
     imageRequest = await FlickrAPI.getImages(term);
+    setImageData(imageRequest);
   }
 
   return (
     <div className="App">
-
       <SearchForm searchBy={searchBy}></SearchForm>
       {isLoading ? (
         <Loading></Loading>
       ) : (
-        <ImageContainer imageRequest={imageRequest}></ImageContainer>
+        <ImageContainer imageRequest={imageData}></ImageContainer>
       )}
     </div>
   );
