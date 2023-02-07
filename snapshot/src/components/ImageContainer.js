@@ -19,15 +19,6 @@ function ImageContainer({ imageRequest }) {
     }
   }
 
-  function switchDiv(){
-    for(let i = 0; i < newImageObj.length; i++){
-      if(i % 2 === 0){
-
-      }else{
-
-      }
-    }
-  }
   //newImageObj = [[{photodata}, {photodata}, {photodata}],[]]
 
   return (
