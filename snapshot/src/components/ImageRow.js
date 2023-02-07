@@ -26,13 +26,27 @@ function ImageRow({images, index}){
 
   let isLarge = false;
 
+  function setIsLarge(i){
+    if(isEven === true){
+      if(i === 2){
+        isLarge = true;
+      }
+    }else if(isEven === false){
+      if(i === 0){
+        isLarge = true;
+      }
+    }else{
+      isLarge = false;
+    }
+  }
+
   return (
     <div class="flex flex-wrap w-1/2">
 
      {images.map((element, i) => (
       //  if(isEven === true && i === 2){isLarge = true;}
+      // isLarge(i)
 
-         {isEven && i == 2 ? isLarge = true : isLarge = false}
 
             <Image
               key={element.id}
