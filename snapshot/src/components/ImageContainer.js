@@ -2,22 +2,17 @@ import React from "react";
 // import Image from "./Image";
 import ImageRow from "./ImageRow"
 
+// imageContainer => ImageRow -> Image
 function ImageContainer({ imageRequest }) {
-
   let imageObj = imageRequest.data.photos.photo;
   let newImageObj = []
-
   let imageCounter = 0;
-
   let temp = [];
 
-  console.log(imageObj.length)
   while (imageCounter < imageObj.length){
-    console.log("temp", temp)
-    // debugger;
     temp.push(imageObj[imageCounter]);
-
     imageCounter++;
+
     if (temp.length === 3){
       newImageObj.push(temp);
       temp = [];
@@ -25,7 +20,7 @@ function ImageContainer({ imageRequest }) {
   }
 
   //newImageObj = [[{photodata}, {photodata}, {photodata}],[]]
-
+  // SENDS ONE ARRAY to ImageRow
   return (
 
     <section class="overflow-hidden text-gray-700">

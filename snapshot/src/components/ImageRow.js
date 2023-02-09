@@ -40,20 +40,21 @@ function ImageRow({images, index}){
     }
   }
 
+  //TODO: set is Large not working this way
+  //SENDS ONE OF THREE FROM ARRAY
   return (
     <div class="flex flex-wrap w-1/2">
 
      {images.map((element, i) => (
       //  if(isEven === true && i === 2){isLarge = true;}
-      // isLarge(i)
-
+      // setIsLarge(i)
 
             <Image
               key={element.id}
               id={element.id}
               server={element.server}
               secret={element.secret}
-              isLarge={isLarge}
+              isLarge={setIsLarge(i)}
             ></Image>
           ))}
           ;

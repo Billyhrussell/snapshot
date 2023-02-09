@@ -31,14 +31,35 @@ import React from  "react";
   //       "isfamily": 0
   //     },
 
-const Image = ({id, server, secret}) => {
+const Image = ({id, server, secret, isLarge}) => {
   // debugger;
-  let imageURL= `https://live.staticflickr.com/${server}/${id}_${secret}_q.jpg`
+  let imageURL= `https://live.staticflickr.com/${server}/${id}_${secret}.jpg`
   // let imageURL= `https://www.seiu1000.org/sites/main/files/main-images/camera_lense_0.jpeg`
 
+  debugger;
+  function small(){
+    return (
+      <div class="w-1/2 p-1 md:p-2">
+        <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg"
+    src={imageURL}></img>
+    </div>)
+  }
+
+  function large(){
+    return ( <div class="w-full p-1 md:p-2">
+    <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg"
+    src={imageURL}></img>
+    </div>)
+  }
   return (
-     <img src={imageURL} alt=""/>
+     <> { isLarge ? large() : small()} </>
   )
 }
 
 export default Image;
+
+{/* <img src={imageURL} alt=""/> */}
+
+//  <> { isLarge ? large() : small()} </>
+
+{/* <img src={imageURL} alt=""/> */}
